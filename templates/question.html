@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question Paper</title>
+    <link rel="icon" href="{{url_for('static',filename='icon/icon.png')}}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        h1,label,h3,h2{
+          font-family: "Roboto", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+        input{
+          font-family: "Roboto", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          font-size:14px;
+        }
+    </style>
+</head>
+<body>
+<br>
+<center>
+    <img src="{{url_for('static',filename='icon/icon.png')}}" width="40px" height="50px"><h1>VP Design School</h1>
+<h2>Scholarship Exam 2024</h2>
+</center>
+<br>
+<form action="score" method="POST">
+    <div>
+        {% for x in questions %}
+            <h3>{{ x[0] }}.{{x[1]}}</h3>
+            <br>
+            <input type="radio" name="question_{{ loop.index }}" value="{{x[2]}}" required><label>{{x[2]}}</label><br><br>
+            <input type="radio" name="question_{{ loop.index }}" value="{{x[3]}}" required><label>{{x[3]}}</label><br><br>
+            <input type="radio" name="question_{{ loop.index }}" value="{{x[4]}}" required><label>{{x[4]}}</label><br><br>
+            <input type="radio" name="question_{{ loop.index }}" value="{{x[5]}}" required><label>{{x[5]}}</label><br><br>
+        {% endfor %}
+    </div>
+    <br>
+    <input type="submit" value="Submit" id="submit1">
+    <br>
+    <br>
+</form>
+<br>
+</body>
+</html>
